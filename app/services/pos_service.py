@@ -1,5 +1,5 @@
 from app.models.keras_tagger import KerasPOSTagger
-from app.models.hmm_tagger import HMMPOSTagger
+from app.models.hmm_pos_tagger.hmm_tagger import HMMPOSTagger
 from app.models.custom_tagger import CustomPOSTagger
 from app.utils.preprocessing import preprocess_text
 

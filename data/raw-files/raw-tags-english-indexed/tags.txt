@@ -1,0 +1,97 @@
+0	preposition + singular proper noun
+1	preposition + adjective
+2	preposition + definite article singular noun
+3	preposition + singular present verb
+4	preposition + comparative
+5	definite article singular noun
+6	accusative attached pronoun
+7	preposition + accusative past verb
+8	proper noun
+9	conjunction
+10	preposition + proper noun
+11	accusative past verb
+12	indefinite noun
+13	definite relative pronoun
+14	adjective
+15	plural noun
+16	definite article noun
+17	preposition + compound preposition
+18	preposition + definite relative pronoun
+19	vocative
+20	abbreviation
+21	accusative masculine singular past verb
+22	accusative present verb
+23	pronoun
+24	interjection
+25	noun
+26	preposition + accusative singular present verb
+27	preposition + accusative masculine singular past verb
+28	adverb
+29	preposition + accusative singular imperative verb
+30	preposition + present verb
+31	dual proper noun
+32	preposition + adverb
+33	preposition + negative particle "ma"
+34	preposition + singular adjective
+35	definite abbreviation
+36	preposition + singular imperative verb
+37	attention particle "ha" + definite article noun
+38	preposition + void
+39	relative pronoun
+40	preposition + abbreviation
+41	preposition + accusative present verb
+42	singular negative particle "la"
+43	attached pronoun
+44	definite noun
+45	singular proper noun
+46	definite adjective
+47	preposition + vocative
+48	preposition + accusative attached pronoun
+49	compound preposition
+50	preposition + definite proper noun
+51	preposition + definite noun
+52	definite void
+53	singular adjective
+54	preposition + attached pronoun
+55	preposition + pronoun
+56	singular adverb
+57	preposition + preposition + noun
+58	comparative
+59	singular present verb
+60	singular verb
+61	preposition + relative pronoun
+62	unknown
+63	preposition + past verb
+64	preposition + definite article noun
+65	preposition + definite adjective
+66	particle
+67	accusative imperative verb
+68	preposition + singular negative particle "la"
+69	negative particle "ma"
+70	exclamation
+71	translation problem
+72	preposition + noun
+73	singular past verb
+74	accusative singular imperative verb
+75	preposition + accusative singular past verb
+76	vocative particle
+77	preposition + singular adverb
+78	definite proper noun
+79	accusative singular present verb
+80	preposition + definite comparative
+81	present verb
+82	preposition + singular noun
+83	preposition + accusative imperative verb
+84	preposition + singular past verb
+85	definite comparative
+86	imperative verb
+87	preposition + imperative verb
+88	singular noun
+89	preposition + vocative particle
+90	void
+91	no
+92	singular imperative verb
+93	past verb
+94	accusative singular past verb
+95	definite vocative
+96	definite indefinite noun

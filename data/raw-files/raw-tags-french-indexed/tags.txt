@@ -1,0 +1,97 @@
+0	préposition + nom propre singulier
+1	préposition + adjectif
+2	préposition + nom défini avec article au singulier
+3	préposition + verbe présent singulier
+4	préposition + comparatif
+5	nom défini avec article au singulier
+6	pronom personnel accusatif
+7	préposition + verbe passé accusatif
+8	nom propre
+9	conjonction de coordination
+10	préposition + nom propre
+11	verbe passé accusatif
+12	nom indéfini
+13	pronom relatif défini
+14	adjectif
+15	nom au pluriel
+16	nom défini avec article
+17	préposition + préposition composée
+18	préposition + pronom relatif défini
+19	vocatif
+20	abréviation
+21	verbe passé accusatif singulier masculin
+22	verbe présent accusatif
+23	pronom
+24	interjection
+25	nom
+26	préposition + verbe présent singulier accusatif
+27	préposition + verbe passé accusatif singulier masculin
+28	adverbe
+29	préposition + verbe impératif singulier accusatif
+30	préposition + verbe présent
+31	nom propre duel
+32	préposition + adverbe
+33	préposition + particule de négation "ma"
+34	préposition + adjectif singulier
+35	abréviation définie
+36	préposition + verbe impératif singulier
+37	particule d'attention "ha" + nom défini avec article
+38	préposition + vide
+39	pronom relatif
+40	préposition + abréviation
+41	préposition + verbe présent accusatif
+42	particule de négation "la" au singulier
+43	pronom personnel
+44	nom défini
+45	nom propre singulier
+46	adjectif défini
+47	préposition + vocatif
+48	préposition + pronom personnel accusatif
+49	préposition composée
+50	préposition + nom propre défini
+51	préposition + nom défini
+52	vide défini
+53	adjectif singulier
+54	préposition + pronom personnel
+55	préposition + pronom
+56	adverbe singulier
+57	préposition + préposition + nom
+58	comparatif
+59	verbe présent singulier
+60	verbe singulier
+61	préposition + pronom relatif
+62	inconnu
+63	préposition + verbe passé
+64	préposition + nom défini avec article
+65	préposition + adjectif défini
+66	particule
+67	verbe impératif accusatif
+68	préposition + particule de négation "la" au singulier
+69	particule de négation "ma"
+70	exclamation
+71	problème de traduction
+72	préposition + nom
+73	verbe passé singulier
+74	verbe impératif singulier accusatif
+75	préposition + verbe passé singulier accusatif
+76	particule vocative
+77	préposition + adverbe singulier
+78	nom propre défini
+79	verbe présent singulier accusatif
+80	préposition + comparatif défini
+81	verbe présent
+82	préposition + nom singulier
+83	préposition + verbe impératif accusatif
+84	préposition + verbe passé singulier
+85	comparatif défini
+86	verbe impératif
+87	préposition + verbe impératif
+88	nom singulier
+89	préposition + particule vocative
+90	vide
+91	non
+92	verbe impératif singulier
+93	verbe passé
+94	verbe passé singulier accusatif
+95	vocatif défini
+96	nom indéfini défini

@@ -125,10 +125,3 @@ dmypy.json
 
 # PyCharm
 .idea/
-
-# Local data
-data/raw/
-data/processed/
-
-# Models
-models/saved_model/
