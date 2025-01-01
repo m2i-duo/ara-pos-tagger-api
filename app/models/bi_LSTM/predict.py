@@ -1,71 +1,52 @@
 import os
 import numpy as np
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from app.config.data_config import (
-    MODEL_PATH,
-    WORD_INDEX_PATH,
-    MAX_SEQUENCE_LENGTH,
-    POS_TO_NUMERICAL_PATH,
-)
-
+from typing import List, Tuple, Dict
+from app.config.data_config import MODEL_PATH, WORD_INDEX_PATH, POS_TO_NUMERICAL_PATH, MAX_SEQUENCE_LENGTH
 
 class POSPredictor:
-    def __init__(self, model_path, word_index_path, pos_to_numerical_path, max_seq_length):
-        # Load the trained model
-        self.model = load_model(model_path)
+    def __init__(self, model_path: str, word_index_path: str, pos_to_numerical_path: str, max_seq_length: int):
         self.max_seq_length = max_seq_length
+        try:
+            self.model = load_model(model_path)
+            self.word_index: Dict[str, int] = np.load(word_index_path, allow_pickle=True).item()
+            index_to_pos_dict = {v: k for k, v in np.load(pos_to_numerical_path, allow_pickle=True).item().items()}
+            self.index_to_pos_tensor = tf.constant(list(index_to_pos_dict.values()), dtype=tf.string)
 
-        # Load word index and POS mapping
-        self.word_index = np.load(word_index_path, allow_pickle=True).item()
-        self.index_to_word = {v: k for k, v in self.word_index.items()}
+        except FileNotFoundError as e:
+            raise FileNotFoundError(f"Error loading model or data files: {e}")
 
-        self.pos_to_numerical = np.load(pos_to_numerical_path, allow_pickle=True).item()
-        self.numerical_to_pos = {v: k for k, v in self.pos_to_numerical.items()}
-
-    def preprocess_input(self, sentence):
-        """
-        Convert a sentence into a sequence of indices and pad it.
-        """
+    def preprocess_input(self, sentence: str) -> np.ndarray:
         words = sentence.split()
         sequence = [self.word_index.get(word, self.word_index.get('<OOV>')) for word in words]
-        padded_sequence = pad_sequences([sequence], maxlen=self.max_seq_length, padding='post')
-        return padded_sequence
+        return pad_sequences([sequence], maxlen=self.max_seq_length, padding='post')
 
-    def predict(self, sentence):
-        """
-        Predict the POS tags for a given sentence.
-        """
+    @tf.function
+    def predict(self, sentence: str) -> List[str]:
         padded_sequence = self.preprocess_input(sentence)
-        predictions = self.model.predict(padded_sequence)
+        predictions = self.model(padded_sequence, training=False)
+        predicted_indices = tf.argmax(predictions[0], axis=-1)
+        predicted_tags_tensor = tf.gather(self.index_to_pos_tensor, predicted_indices)
+        return [tag.decode('utf-8') for tag in predicted_tags_tensor.numpy()]
 
-        # Convert predictions to POS tags
-        predicted_tags = [self.numerical_to_pos[np.argmax(tag)] for tag in predictions[0]]
-        return predicted_tags
 
-    def postprocess_output(self, sentence, predicted_tags):
-        """
-        Combine the sentence and the predicted tags for visualization.
-        """
+    def postprocess_output(self, sentence: str, predicted_tags: List[str]) -> List[Tuple[str, str]]:
         words = sentence.split()
         return list(zip(words, predicted_tags[:len(words)]))
 
+def tag(sentence: str) -> List[Tuple[str, str]]:
+    try:
+        predictor = POSPredictor(
+            model_path=MODEL_PATH,
+            word_index_path=WORD_INDEX_PATH,
+            pos_to_numerical_path=POS_TO_NUMERICAL_PATH,
+            max_seq_length=MAX_SEQUENCE_LENGTH
+        )
+        predicted_tags = predictor.predict(sentence.strip())
+        return predictor.postprocess_output(sentence, predicted_tags)
+    except Exception as e:
+        print(f"An error occurred during tagging: {e}") # Handle and log the exception.
+        return [] # Return empty list in case of error.
 
-# Example Usage
-if __name__ == "__main__":
-    sentence = input("Enter a sentence in Arabic: ").strip()
-
-    # Paths from config
-    predictor = POSPredictor(
-        model_path=MODEL_PATH,
-        word_index_path=WORD_INDEX_PATH,
-        pos_to_numerical_path=POS_TO_NUMERICAL_PATH,
-        max_seq_length=MAX_SEQUENCE_LENGTH
-    )
-
-    predicted_tags = predictor.predict(sentence)
-    result = predictor.postprocess_output(sentence, predicted_tags)
-
-    print("Predicted POS tags:")
-    for word, tag in result:
-        print(f"{word} -> {tag}")
