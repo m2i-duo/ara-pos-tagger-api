@@ -64,6 +64,7 @@ if __name__ == "__main__":
     )
 
     predicted_tags = predictor.predict(sentence)
+    arr_sentence = ""
     result = predictor.postprocess_output(sentence, predicted_tags)
 
     print("Predicted POS tags:")
