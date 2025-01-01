@@ -1,9 +1,9 @@
 import numpy as np
 from model import BiLSTMModel
-from app.config.data_config import MODEL_PATH
+from app.config.data_config import MODEL_PATH, X_TEST_PATH, Y_TEST_PATH
 # Load test data
-X_test = np.load('../data/processed/X_test.npy')
-y_test = np.load('../data/processed/y_test.npy')
+X_test = np.load(X_TEST_PATH)
+y_test = np.load(Y_TEST_PATH)
 
 # Initialize and load the trained model
 bilstm_model = BiLSTMModel(vocab_size=None, max_seq_length=None)  # Placeholder; loading the model doesn't require vocab_size/max_seq_length

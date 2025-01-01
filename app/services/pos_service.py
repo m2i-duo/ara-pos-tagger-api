@@ -1,7 +1,5 @@
 import tensorflow as tf
-from app.models.bi_LSTM.keras_biLSTM_tagger import KerasPOSTagger
 from app.models.hmm_pos_tagger.hmm_tagger import HMMPOSTagger
-from app.models.custom_tagger import CustomPOSTagger
 from app.utils.mapper import map_tags
 
 tf.config.run_functions_eagerly(True)  # Enable eager execution globally
