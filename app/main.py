@@ -8,4 +8,6 @@ app = FastAPI(
     description=APIConfig.DESCRIPTION
 )
 
-app.include_router(pos.router)
+
+# Add a base URL prefix for all routes
+app.include_router(pos.router, prefix="/api/v1")

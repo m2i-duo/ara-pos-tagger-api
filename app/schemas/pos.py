@@ -4,4 +4,8 @@ class POSTagRequest(BaseModel):
     text: str
 
 class POSTagResponse(BaseModel):
-    tagged_text: str
+    word: str
+    tag: str
+    arabic_tag: str
+    french_tag: str
+    english_tag: str
