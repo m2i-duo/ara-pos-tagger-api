@@ -1,5 +1,5 @@
 from app.config.model_config import ModelConfig
-
+from app.models.hmm_pos_tagger.hmm_model import test_model
 class HMMPOSTagger:
     def __init__(self):
         # Load your HMM + Viterbi model here
@@ -15,5 +15,5 @@ class HMMPOSTagger:
         self.metrics = ModelConfig.METRICS
 
     def tag(self, text: str):
-        # Implement the tagging logic using HMM + Viterbi model here
-        return "tagged text with HMM"
+        tagged_text = test_model(text)
+        return tagged_text

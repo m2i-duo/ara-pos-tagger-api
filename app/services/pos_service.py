@@ -1,7 +1,7 @@
-from app.models.keras_tagger import KerasPOSTagger
+from app.models.bi_LSTM.keras_biLSTM_tagger import KerasPOSTagger
 from app.models.hmm_pos_tagger.hmm_tagger import HMMPOSTagger
 from app.models.custom_tagger import CustomPOSTagger
-from app.utils.preprocessing import preprocess_text
+from app.utils.mapper import map_tags
 
 class POSTagService:
     def __init__(self, model_type: str):
@@ -15,6 +15,11 @@ class POSTagService:
             raise ValueError("Invalid model type")
 
     def tag(self, text: str):
-        preprocessed_text = preprocess_text(text)
-        tagged_text = self.tagger.tag(preprocessed_text)
-        return {"tagged_text": tagged_text}
+        tagged_text = self.tagger.tag(text)
+        response = map_tags(tagged_text)
+        return response
+
+# # test
+# pos = POSTagService("keras")
+# print(pos.tag("المنظمة العربية للتربية والثقافة والعلوم هي منظمة متخصصة"))
+# pos = POSTagService("hmm")
